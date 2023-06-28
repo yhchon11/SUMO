@@ -1,0 +1,22 @@
+<additional>
+ <e1Detector id="-D0" lane="-E0_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="-D1" lane="-E1_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="-D2" lane="-E2_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="-D3" lane="-E3_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="-D4" lane="-E4_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="-D5" lane="-E5_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="-D6" lane="-E6_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="-D7" lane="-E7_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="-D8" lane="-E8_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="-D9" lane="-E9_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="D0" lane="E0_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="D1" lane="E1_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="D2" lane="E2_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="D3" lane="E3_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="D4" lane="E4_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="D5" lane="E5_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="D6" lane="E6_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="D7" lane="E7_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="D8" lane="E8_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+ <e1Detector id="D9" lane="E9_0" pos="-10" freq="30" file="cross.out" friendlyPos="x"/>
+</additional>
