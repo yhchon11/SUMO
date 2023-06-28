@@ -3,7 +3,7 @@
         <param key="has.emission.device" value="true"/>
         <param key="has.rerouting.device" value="true"/>
     </vType>
-    <route id="rou0" edges="E0 E3 E8 E9"/>
+    <route id="rou0" edges="E0 E1 E6 E9"/>
     
     <vehicle depart="0.0" id="veh0" route="rou0" type="agent" color="1,1,0"/>
     
