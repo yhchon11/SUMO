@@ -151,7 +151,7 @@ def dqn_run(num_seed, trained,sumoBinary,plotResult, num_episode,net, trip, rand
         routes = []
        
         state = env.reset() #58개 
-
+        state_size = len(state)
         state = np.reshape(state,[1,state_size]) #for be 모델 input
         #curlane = env.get_curlane(veh)
         #curedge = env.get_curedge(curlane)
