@@ -126,7 +126,7 @@ def plot_trainedresult(num_seed, episodes, scores, dirResult, num_episode):
 
 ##########@경로 탐색@##########
 #DQN routing : routing by applying DQN algorithm (using qlEnv & alAgent)
-def dqn_run(num_seed, trained,sumoBinary,plotResult, num_episode,net, trip, randomrou, add,dirResult,dirModel, sumocfg,fcdoutput, edgelists,alldets, dict_connection,veh,destination, state_size, action_size):  
+def dqn_run(missing_end, num_seed, trained,sumoBinary,plotResult, num_episode,net, trip, randomrou, add,dirResult,dirModel, sumocfg,fcdoutput, edgelists,alldets, dict_connection,veh,destination, state_size, action_size):  
     env = dqnEnv(sumoBinary, net_file = net, cfg_file = sumocfg, edgelists = edgelists, alldets=alldets, dict_connection=dict_connection, veh = veh, destination = destination, state_size = state_size, action_size= action_size)
     if trained :
         agent = dqnTrainedAgent( num_seed, edgelists, dict_connection, state_size, action_size,num_episode, dirModel)
@@ -134,6 +134,12 @@ def dqn_run(num_seed, trained,sumoBinary,plotResult, num_episode,net, trip, rand
     else:
         agent = dqnAgent(num_seed, edgelists, dict_connection, state_size, action_size, num_episode, dirModel)
     
+    missing_end_new = []
+    for i in missing_end:    
+        temp = i.replace('D','E')
+        missing_end_new.append(temp)
+    print("Road ",missing_end_new," modified")
+
     start = time.time()
 
     scores, episodes = [],[]
@@ -151,7 +157,7 @@ def dqn_run(num_seed, trained,sumoBinary,plotResult, num_episode,net, trip, rand
         routes = []
        
         state = env.reset() #58개 
-
+        state_size = len(state)
         state = np.reshape(state,[1,state_size]) #for be 모델 input
         #curlane = env.get_curlane(veh)
         #curedge = env.get_curedge(curlane)
@@ -436,13 +442,13 @@ if __name__ == "__main__":
 
     """Run Simulation"""
     #2) Run in DQN environment
-    
+    missing_end = []
     trained = False
     num_seed = random.randrange(1000)
     while True: #num_episode같아도 num_seed를 달리해서 겹치는 파일 생성 방지함. 
         file = dirModel + str(num_episode)+'_'+str(num_seed)+'.h5'
         if not os.path.isfile(file): break
-    dqn_run(num_seed, trained, sumoBinary, plotResult, num_episode, net, trip, randomrou, add, dirResult,dirModel,
+    dqn_run(missing_end, num_seed, trained, sumoBinary, plotResult, num_episode, net, trip, randomrou, add, dirResult,dirModel,
     sumocfg, fcdoutput, edgelists,alldets, dict_connection,veh,destination, state_size, action_size)
     
     temp = dets
@@ -459,7 +465,7 @@ if __name__ == "__main__":
     alldets = get_alldets(edgelists)    
 
     """V2I notification to agent"""
-    missing_end = []
+
     temp_flag = 0
     missing_end = list(set(temp) - set(dets)) 
     
@@ -468,7 +474,7 @@ if __name__ == "__main__":
         trained = True
         state_size = 64
         action_size = 3
-        dqn_run_again(missing_end, num_seed, trained, sumoBinary, plotResult, num_episode, net, trip, randomrou, add, dirResult,dirModel,
+        dqn_run(missing_end, num_seed, trained, sumoBinary, plotResult, num_episode, net, trip, randomrou, add, dirResult,dirModel,
     sumocfg, fcdoutput, edgelists,alldets, dict_connection,veh,destination, state_size, action_size)
 
     """Run with pre-trained model : Load Weights & Route """
